@@ -1,15 +1,10 @@
 NAME = libftprintf.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-SRCS = ft_printf.c \
-	ft_putchar.c \
-	ft_putstr.c \
-	ft_putnbr.c \
-	ft_putunbr.c \
-	ft_puthex.c
+SRCS = ft_printf.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -30,4 +25,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

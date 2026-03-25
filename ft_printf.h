@@ -23,7 +23,5 @@ int	ft_putstr(char *c);
 int	ft_hexa(unsigned long nbr, char *base);
 int	ft_printf(const char *format, ...);
 int	ft_util(va_list args, char sign);
-int	ft_ptr(void *ptr);
-int	ft_putnbr_usd(unsigned int nb);
 
 #endif

@@ -35,27 +35,6 @@ int	ft_printf(const char *format, ...)
 	return (i);
 }
 
-int	ft_util(va_list args, char sign)
-{
-	if (sign == 'd' || sign == 'i')
-		return (ft_putnbr(va_arg(args, int)));
-	if (sign == 'x')
-		return (ft_hexa(va_arg(args, unsigned int), "0123456789abcdef"));
-	if (sign == 'X')
-		return (ft_hexa(va_arg(args, unsigned int), "0123456789ABCDEF"));
-	if (sign == 'c')
-		return (ft_putchar(va_arg(args, int)));
-	if (sign == 's')
-		return (ft_putstr(va_arg(args, char *)));
-	if (sign == 'p')
-		return (ft_ptr(va_arg(args, void *)));
-	if (sign == 'u')
-		return (ft_putnbr_usd(va_arg(args, unsigned int)));
-	if (sign == '%')
-		return (ft_putchar('%'));
-	return (0);
-}
-
 static int	ft_ptr(void *ptr)
 {
 	int	count;
@@ -82,4 +61,25 @@ static int	ft_putnbr_usd(unsigned int nb)
 	}
 	count += ft_putchar(nb % 10 + '0');
 	return (count);
+}
+
+int	ft_util(va_list args, char sign)
+{
+	if (sign == 'd' || sign == 'i')
+		return (ft_putnbr(va_arg(args, int)));
+	if (sign == 'x')
+		return (ft_hexa(va_arg(args, unsigned int), "0123456789abcdef"));
+	if (sign == 'X')
+		return (ft_hexa(va_arg(args, unsigned int), "0123456789ABCDEF"));
+	if (sign == 'c')
+		return (ft_putchar(va_arg(args, int)));
+	if (sign == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	if (sign == 'p')
+		return (ft_ptr(va_arg(args, void *)));
+	if (sign == 'u')
+		return (ft_putnbr_usd(va_arg(args, unsigned int)));
+	if (sign == '%')
+		return (ft_putchar('%'));
+	return (0);
 }
